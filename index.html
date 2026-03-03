@@ -142,6 +142,26 @@
 </head>
 <body class="text-white font-sans antialiased selection:bg-romantic-red selection:text-white">
 
+<!-- Romantic Loader -->
+<div id="loader" class="fixed inset-0 bg-[#0f021a] flex flex-col items-center justify-center z-[9999] transition-opacity duration-1000">
+    
+    <!-- Glowing Heart -->
+    <div class="relative">
+        <div class="w-24 h-24 bg-romantic-red rounded-full animate-pulse blur-2xl absolute"></div>
+        <svg class="w-20 h-20 text-romantic-red fill-current relative animate-bounce" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 
+                     4.5 2.09C13.09 3.81 14.76 3 16.5 3 
+                     19.58 3 22 5.42 22 8.5c0 3.78-3.4 
+                     6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+    </div>
+
+    <p class="mt-6 font-script text-3xl text-white animate-pulse">
+        Loading something special...
+    </p>
+</div>
+
     <!-- Floating Background Hearts -->
     <div class="heart-container" id="heartContainer"></div>
 
@@ -401,6 +421,19 @@
             }, 500);
         }
 
-    </script>
+<script>
+    // Loader Fade Out
+    window.addEventListener("load", function() {
+        const loader = document.getElementById("loader");
+        
+        setTimeout(() => {
+            loader.style.opacity = "0";
+            
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 1000);
+        }, 2000); // Loader stays for 2 seconds
+    });
+</script>
 </body>
 </html>
